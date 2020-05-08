@@ -1,13 +1,16 @@
 <body>
     <div id="root"></div>
-  
+    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
     <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   
     <script type="text/babel">
-      const rootElement = document.getElementById('root');
+        const rootElement = document.getElementById('root');
   
       /* Business Card component
        * @param name - the name of the person displayed in the business card
@@ -16,11 +19,41 @@
        * @param headline - a brief description that describes what the person does in 120 characters or less
        */
   
-      // Add your component here :)
+        const cardData = {
+            name: 'Daniel Alejandro Rodríguez Castro',
+            email: 'A01273096@itesm.mx',
+            phone: 7711730687,
+            headline: 'Information Technology Engineer',
+        }
+
+      const BusinessCard = (props) => {
+        const {
+            name,
+            email,
+            phone,
+            headline
+        } = props;
+
+        return (
+            <div className="card">
+                <h1>{name}</h1>
+                <h2>{headline}</h2>
+                <h1>{email}</h1>
+                <h2>Cel: {phone}</h2>
+            </div>
+        );
+      }
+
+      BusinessCard.propTypes = {
+        name: PropTypes.string,
+        headline: PropTypes.string,
+        email: PropTypes.string,
+        phone: PropTypes.number
+      }
   
       const app = (
         <>
-          
+          <BusinessCard {...cardData}/>
         </>
       );
   
