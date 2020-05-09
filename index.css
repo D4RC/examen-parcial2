@@ -2,6 +2,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 300;
 }
 
 .card {
@@ -10,8 +11,17 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: 'Montserrat';
+    height: 20rem;
     width: 35rem;
     border-radius: 2rem;
     box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.25);
+    margin: 3rem;
 }
 
+img {
+    width: 30rem;
+}
+
+.name {
+    font-weight: medium;
+}

@@ -20,39 +20,52 @@
        */
   
         const cardData = {
-            name: 'Daniel Alejandro Rodríguez Castro',
-            email: 'A01273096@itesm.mx',
+            name: 'DANIEL RODRÍGUEZ CASTRO',
+            email: 'daniel.rcda@gmail.com',
             phone: 7711730687,
-            headline: 'Information Technology Engineer',
+            headline: 'Cloud Engineer',   
         }
 
       const BusinessCard = (props) => {
+        
         const {
             name,
             email,
             phone,
-            headline
+            headline,
+            front
         } = props;
 
-        return (
-            <div className="card">
-                <h1>{name}</h1>
-                <h2>{headline}</h2>
-                <h1>{email}</h1>
-                <h2>Cel: {phone}</h2>
-            </div>
-        );
+        if(front) {
+            return (
+                <div className="card">
+                    <h1 className="name">{name}</h1>
+                    <h2>{headline}</h2>
+                    <h1>{email}</h1>
+                    <h2>Cel: {phone}</h2>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="card">
+                    <img src="nfc.jpg"></img>
+                </div>
+            )
+        }
       }
 
       BusinessCard.propTypes = {
         name: PropTypes.string,
         headline: PropTypes.string,
         email: PropTypes.string,
-        phone: PropTypes.number
+        phone: PropTypes.number,
+        front: PropTypes.bool
       }
   
       const app = (
         <>
+          <BusinessCard {...cardData} front={true}/>
           <BusinessCard {...cardData}/>
         </>
       );
